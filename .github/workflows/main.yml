@@ -1,0 +1,23 @@
+name: Scheduler
+
+on: 
+  schedule:
+    - cron:  "0 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: install requirements.txt
+      run: pip3 install -r requirements.txt
+      
+    - name: run main.py
+      run: python3 main.py
+      env:
+        OPEN_WEATHER_MAP_API_KEY: ${{ secrets.OPEN_WEATHER_MAP_API_KEY}}
+        TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+        TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
+        TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET}}
