@@ -63,13 +63,13 @@ weather_icons = {
 city_id = "1850147"
 user_name = "miya"
 
-open_weather_map_api_key = os.environ.get("open_weather_map_api_key")
+open_weather_map_api_key = os.environ.get("OPEN_WEATHER_MAP_API_KEY")
 open_weather_map_api = "http://api.openweathermap.org/data/2.5/weather"
 
-twitter_consumer_key = os.environ.get("twitter_consumer_key")
-twitter_consumer_secret = os.environ.get("twitter_consumer_secret")
-twitter_access_key = os.environ.get("twitter_access_key")
-twitter_access_secret = os.environ.get("twitter_access_secret")
+twitter_consumer_key = os.environ.get("TWITTER_CONSUMER_KEY")
+twitter_consumer_secret = os.environ.get("TWITTER_CONSUMER_SECRET")
+twitter_access_key = os.environ.get("TWITTER_ACCESS_KEY")
+twitter_access_secret = os.environ.get("TWITTER_ACCESS_SECRET")
 
 
 def get_weather_icon():
