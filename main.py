@@ -2,7 +2,7 @@ import os
 import requests
 from twython import Twython
 
-WEATHER_ICONS = {
+weather_icons = {
     200: "⚡",
     201: "⚡",
     202: "⚡",
@@ -63,7 +63,7 @@ WEATHER_ICONS = {
 city_id = "1850147"
 user_name = "miya"
 
-open_weather_map_api_key = os.environ.get("open_weather_map_key")
+open_weather_map_api_key = os.environ.get("open_weather_map_api_key")
 open_weather_map_api = "http://api.openweathermap.org/data/2.5/weather"
 
 twitter_consumer_key = os.environ.get("twitter_consumer_key")
@@ -80,7 +80,7 @@ def get_weather_icon():
     }
     r = requests.get(open_weather_map_api, params=query)
     weather_id = r.json()["weather"][0]["id"]
-    return WEATHER_ICONS[weather_id]
+    return weather_icons[weather_id]
 
 
 def change_twitter_profile():
