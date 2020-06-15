@@ -73,14 +73,19 @@ twitter_access_secret = os.environ.get("TWITTER_ACCESS_SECRET")
 
 
 def get_weather_icon():
+    weather_icon = ""
     query = {
         "APPID": open_weather_map_api_key,
         "id": city_id,
         "mode": "json",
     }
     r = requests.get(open_weather_map_api, params=query)
-    weather_id = r.json()["weather"][0]["id"]
-    return weather_icons[weather_id]
+    if r.status_code == 200:
+        response_json = r.json()
+        if response_json["cod"] == 200:
+            weather_id = response_json["weather"][0]["id"]
+            weather_icon = weather_icons[weather_id]
+    return weather_icon
 
 
 def change_twitter_profile():
